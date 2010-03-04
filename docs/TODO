@@ -1,0 +1,13 @@
+if the manage funds page is loaded first, the fund dropdown for imports never loads.
+disable import forms untill the fund dropdown has loaded.
+we don't need to call get_budget after adding or changing a fund, we can just update the display client side.
+make sure that there is some "waiting" feedback when funds/entries are added/changed/deleted/imported
+Need waiting feedback on logout.
+make sure imported entries are inserted immediately into the display.
+
+Use Log4perl for logging.
+
+Reports/Graphs
+Create New Account
+Reorder Funds
+Account Prefs

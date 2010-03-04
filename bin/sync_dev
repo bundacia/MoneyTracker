@@ -1,0 +1,4 @@
+#!/bin/bash
+rsync --delete -Cavz $MT_CODEBASE/htdocs/{css,js,media,index.html,test.html} trevormg19_mtd@ssh.phx.nearlyfreespeech.net:/home/public
+rsync --delete -Cavz $MT_CODEBASE/cgi-bin trevormg19_mtd@ssh.phx.nearlyfreespeech.net:/home/public
+rsync --delete -Cavz $MT_CODEBASE/{3rd_party,bin,conf,docs,lib,sql} trevormg19_mtd@ssh.phx.nearlyfreespeech.net:/home/protected/MoneyTracker

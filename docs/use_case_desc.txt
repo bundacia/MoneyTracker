@@ -1,0 +1,127 @@
+######################
+Login
+######################
+1. User Enters user_name and password.
+2. IF User exists, then Password is checked against that stored in database
+   ELSE user sees an error saying that he/she cannot log in with this username/password
+3. IF password is correct, user will be logged in* and 'Select Budget' Use case starts.
+   ELSE user sees an error saying that he/she cannot log in with this username/password
+
+######################
+Select Budget
+######################
+1. User is shown a list of budgets they have access to.
+2. User clicks on one to select it.
+3. User is shown all the funds and the entries for the current month for that budget.
+
+######################
+Create Budget
+######################
+1. User clicks on a Create Budget button.
+2. User is shown a form with the fields for the budget.
+3. User fills out and submits form.
+
+######################
+Edit Budget
+######################
+1. User clicks on a Edit Budget button.
+2. User is shown a form with the fields for the budget.
+3. User fills out and submits form.
+
+######################
+Delete Budget
+######################
+1. User clicks a Delete Budget button.
+
+######################
+Create Fund
+######################
+1. User clicks on a Create Fund button.
+2. User is shown a form with the fields for the Fund.
+3. User fills out and submits form.
+
+######################
+Edit Fund
+######################
+1. User clicks on a Edit Fund button.
+2. User is shown a form with the fields for the Fund.
+3. User fills out and submits form.
+
+######################
+Delete Fund
+######################
+1. User clicks a Delete Fund button.
+
+######################
+Create Entry
+######################
+1. User clicks on a Create Entry button.
+2. User is shown a form with the fields for the Entry.
+3. User fills out and submits form.
+
+######################
+Edit Entry
+######################
+1. User clicks on a Edit Entry button.
+2. User is shown a form with the fields for the Entry.
+3. User fills out and submits form.
+
+######################
+Delete Entry
+######################
+1. User clicks a Delete Entry button.
+
+######################
+Create Event
+######################
+1. User clicks on a Create Event button.
+2. User is shown a form with the fields for the Event.
+3. User fills out and submits form.
+
+######################
+Edit Event
+######################
+1. User clicks on a Edit Event button.
+2. User is shown a form with the fields for the Event.
+3. User fills out and submits form.
+
+######################
+Delete Event
+######################
+1. User clicks a Delete Event button.
+
+######################
+Create User
+######################
+1. User clicks on a Create User button.
+2. User is shown a form with the fields for the User.
+3. User fills out and submits form.
+
+######################
+Edit User
+######################
+1. User clicks on a Edit User button.
+2. User is shown a form with the fields for the User.
+3. User fills out and submits form.
+
+######################
+Delete User
+######################
+1. User clicks a Delete User button.
+
+######################
+View Month
+######################
+1. User selects a month and year.
+2. User is shown all the funds and the entries for that month for that budget.
+
+######################
+Logout
+######################
+1. User clicks logout.
+2. User is logged out*.
+
+----------------------
+NOTES
+---------------------
+* Logged in means that they have a cookie set with their username and a Session ID (SID). In version 1 the SID is just the budget_id for the budget they are currently working on or 0.

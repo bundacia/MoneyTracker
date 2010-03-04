@@ -1,0 +1,82 @@
+2008-03-03 20:53  mgrimes
+
+	* Build.PL, lib/Finance/Card/Citibank.pm, t.pl,
+	  t/10-check_balance.t, t/99-podcoverage.t, t/perlcriticrc: Added
+	  ability to pull data from more than one account (thanks to Jon
+	  Keller for contributing the code).
+	  Minor code cleanup (perlcritic is now happy and we dropped
+	  AUTOLOAD for Class::Accessor::Fast).
+
+2008-02-14 19:12  mgrimes
+
+	* .releaserc: Update the .releaserc files to drop SF
+
+2008-01-03 02:42  mgrimes
+
+	* ., Makefile.PL, README: Update svn:ignore
+
+2007-12-29 01:06  mgrimes
+
+	* Build.PL, lib/Finance/Card/Citibank.pm: Added Client::Lirc module
+	  Updated the build_requires
+
+2007-12-29 01:05  mgrimes
+
+	* Makefile.PL, README, lib/Finance/Card/Citibank.pm: Updated the
+	  author name, etc.
+
+2007-11-26 17:16  mgrimes
+
+	* META.yml: Removed META.yml from the repos
+
+2007-11-26 17:14  mgrimes
+
+	* lib/Finance/Card/Citibank.pm, t/10-check_balance.t: Update to
+	  track changes in Citibank site
+
+2007-11-06 19:23  mgrimes
+
+	* .: Configured svn:ignore
+
+2007-11-06 19:05  mgrimes
+
+	* lib/Finance/Card/Citibank.pm: Removed extra debugging info
+
+2007-10-30 18:24  mgrimes
+
+	* META.yml: svn wants META.yml checked in
+
+2007-10-30 18:23  mgrimes
+
+	* ChangeLog, lib/Finance/Card/Citibank.pm, t/10-check_balance.t:
+	  Removed use_ok from t/10- test. It is already checked in 00-new.
+
+2007-10-29 17:25  mgrimes
+
+	* ChangeLog: Updated changelog
+
+2007-10-29 17:21  mgrimes
+
+	* ., .cvsignore, .releaserc, Build.PL, MANIFEST, META.yml,
+	  Makefile.PL, lib/Finance/Card/Citibank.pm, t.pl,
+	  t/10-check_balance.t, t/96-kwalitee.t, t/97-critic.t, t/98-pod.t,
+	  t/99-podcoverage.t: Updated to work with the new citi format
+	  TODO: Still need to deal with multiple accounts
+	  Changed author tests to look for TEST_AUTHOR
+	  Converted to svn release, etc
+
+2007-10-24 22:58  mgrimes
+
+	* lib/Finance/Card/Citibank.pm: Add mail-archive
+
+2007-09-19 17:26  mgrimes
+
+	* ., .cvsignore, .releaserc, Build.PL, ChangeLog, MANIFEST,
+	  MANIFEST.skip, META.yml, Makefile.PL, README, lib, lib/Finance,
+	  lib/Finance/Card, lib/Finance/Card/Citibank.pm, samples,
+	  samples/get_balances.pl, t, t.pl, t/00-new.t,
+	  t/10-check_balance.t, t/97-critic.t, t/98-pod.t,
+	  t/99-podcoverage.t, t/perlcriticrc: Moved cvs files to svn
+	  (without history)
+	  Look in the cvs/Perl repos for history
+

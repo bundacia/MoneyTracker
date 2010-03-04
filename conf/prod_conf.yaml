@@ -1,0 +1,23 @@
+base_dir: "home/protected/MoneyTracker/"
+cookie_name: "mts"
+domain: "mt.tjlittle.com"
+
+EventProcessor:
+    user: "app_user"
+    window: "25d"
+
+ImportEntries:
+    user: "app_user"
+
+db:
+    db: "money_tracker_db"
+    host: "tjlittle.db"
+    password: "!moneytracker"
+    user: "moneytracker"
+
+LogConfig: |
+    log4perl.rootLogger: WARN, Logfile
+    log4perl.appender.Logfile          : Log::Log4perl::Appender::File
+    log4perl.appender.Logfile.filename : home/protected/log/mt.log
+    log4perl.appender.Logfile.layout   : Log::Log4perl::Layout::PatternLayout
+    log4perl.appender.Logfile.layout.ConversionPattern : (%P) %d %p %m%n

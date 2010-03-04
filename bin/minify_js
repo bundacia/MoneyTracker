@@ -1,0 +1,5 @@
+#!/bin/bash
+find $MT_CODEBASE/htdocs/js/orig/ \
+    -regex '.*\.js'               \
+    -exec echo "" \;              \
+    -exec java -jar $MT_CODEBASE/3rd_party/yuicompressor/build/yuicompressor-*.jar {} \; > $MT_CODEBASE/htdocs/js/app.min.js

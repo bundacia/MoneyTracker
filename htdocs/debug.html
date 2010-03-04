@@ -1,0 +1,90 @@
+<html>                                                                  
+<head>                                                                  
+<link href="/js/jquery.ui/themes/ui.datepicker.css" rel="stylesheet" type="text/css"></style>
+<link href="/css/style.css"                         rel="stylesheet" type="text/css"></style>
+
+<script type="text/javascript" src="/js/jquery.js"></script>          
+<script type="text/javascript" src="/js/jquery.ui/ui/minified/ui.datepicker.min.js"></script>
+
+<script type="text/javascript" src="/js/orig/lists.js"></script>
+<script type="text/javascript" src="/js/orig/budget.js"></script>
+<script type="text/javascript" src="/js/orig/entries.js"></script>
+<script type="text/javascript" src="/js/orig/imported_entries.js"></script>
+<script type="text/javascript" src="/js/orig/custom.js"></script>
+
+</head>                                                                 
+<body>           
+<div id="header">
+    <h2>MoneyTracker</h2>
+</div>
+<div id="left_col">
+	<div id="main_menu" class="display_on_login logged_in">
+        <div class="menu_header">Main Menu</div>
+        <table>
+            <thead>
+              <tr><th id='change_month_option'>
+                <span class="funds_page"><a class='arrow' href='#'>&lt;</a>&nbsp;<span id='month_display'></span>&nbsp;<a class='arrow' href='#'>&gt;</a></span>
+                <span class="fund_manager_page import_page"><a onClick='change_page(0)' href='javascript:void(0)'>&lt;&lt; Return to Budget </a></span>
+              </th></tr>
+            </thead>
+            <tr><td class="funds_page import_page"      ><a onClick='change_page(1)' href='javascript:void(0)'>Manage Funds   </a></td></tr>
+            <tr><td class="funds_page fund_manager_page"><a onClick='change_page(2)' href='javascript:void(0)'>Import Entries </a></td></tr>
+            <tr><td                                     ><a href='javascript:void(0)' onClick='logout()'      >Logout         </a></td></tr>
+        </table>
+    </div>
+	<div id="selected_menu" class="selected_menu logged_in">
+        <div class="menu_header">Selection&nbsp;(<span id="selected_count"></span>)</div>
+        <table>
+            <tr><td>Sum: &nbsp;<span id="selected_sum"></span></td></tr>
+            <tr><td><a onClick='show_edit_forms()'  href='javascript:void(0)'> Edit    </a></td></tr>
+            <tr><td><a onClick='delete_entries()'   href='javascript:void(0)'> Delete  </a></td></tr>
+            <tr><td><a onClick='deselect_entries()' href='javascript:void(0)'> Cancel   </a></td></tr>
+        </table>
+    </div>
+	<div id="selected_funds_menu" class="selected_menu logged_in">
+        <div class="menu_header">Selection&nbsp;(<span id="selected_funds_count"></span>)</div>
+        <table>
+            <tr><td>Sum: &nbsp;<span id="selected_funds_sum"></span></td></tr>
+            <tr><td><a onClick='show_fund_edit_forms()'  href='javascript:void(0)'> Edit    </a></td></tr>
+            <tr><td><a onClick='delete_funds()'          href='javascript:void(0)'> Delete  </a></td></tr>
+            <tr><td><a onClick='deselect_funds()'        href='javascript:void(0)'> Cancel  </a></td></tr>
+        </table>
+    </div>
+    <div id="login_form" class="logged_out">
+        <div class='menu_header'>MoneyTracker Login</div>
+        <form>
+            <table>
+            <tr>
+                <td> Username:</td>
+            </tr>
+            <tr>
+                <td> <input type="text"     name='user_name' size='12'></input> </td>
+            </tr>
+            <tr>
+                <td> Password:</td>
+            </tr>
+            <tr>
+                <td> <input type="password" name='password' size='12'></input> </td>
+            </tr>
+            <tr><td text-align='center'>
+                    <img id="login_wait_icon" src="/media/icons/wait/wait_bar.gif" style="display: none"></img>
+                    <input type='submit' value='Login'></input>
+            </td></tr>
+
+            </table>
+        </form>
+    </div>
+</div>
+<div id="main_content">
+    <img id="main_content_wait_icon" src="/media/icons/wait/wait_bar.gif"></img>
+	<div id="welcome" class="logged_out">
+    Hello, Welcome to My MoneyTracker, an easy way to keep track of your money. 
+    </div>
+	<div id="funds"          class="funds_page        logged_in"></div>
+	<div id="fund_manager"   class="fund_manager_page logged_in"></div>
+	<div id="import_entries" class="import_page       logged_in"></div>
+</div>
+<div id="right_col">
+</div>
+</body>                                                                 
+</html>

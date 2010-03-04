@@ -1,0 +1,11 @@
+#!/bin/bash
+TAG=$1;
+REPO_BASE=file:///home/private/svn/moneytracker/tags/$TAG;
+
+svn switch $REPO_BASE              /home/protected/MoneyTracker/
+svn switch $REPO_BASE/cgi-bin      /home/public/cgi-bin
+svn switch $REPO_BASE/htdocs/css   /home/public/css
+svn switch $REPO_BASE/htdocs/js    /home/public/js
+svn switch $REPO_BASE/htdocs/media /home/public/media
+
+svn cat $REPO_BASE/htdocs/index.html > index.html
