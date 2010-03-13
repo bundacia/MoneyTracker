@@ -9,8 +9,8 @@ use MoneyTracker::API;
 eval { 
     my $api = MoneyTracker::API->new(
         PARAMS => {
-            base_dir     => $ENV{MT_CODEBASE}.'/'         ,
-            config_file  => $ENV{MT_CONFIG}  .'_conf.yaml',
+            base_dir    => $ENV{MT_CODEBASE}.'/',
+            config_file => $ENV{MT_CONFIG}      ,
         },
     );
     $api->run(); 

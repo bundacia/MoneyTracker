@@ -60,17 +60,10 @@ sub setup
     my $self = shift;
     my $base_dir = $self->param('base_dir');
 
-    # Get the absolute path to the config file
-    my $absolute_config_filepath = catfile(
-        $base_dir,
-        'conf',
-        $self->param('config_file'),
-    );
-
     # Get the config
     eval
     {
-        $self->config_file( $absolute_config_filepath );
+        $self->config_file( $self->param('config_file') );
         $self->config_fold({base_dir => $base_dir});
         $self->{conf} = $self->config_param();
     }; die "Error occured getting the configuration. [$@]" if ($@);
