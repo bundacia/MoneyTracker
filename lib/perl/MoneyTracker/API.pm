@@ -23,11 +23,12 @@ use Data::Dumper;
 use English qw( -no_match_vars );
 use XML::Simple;
 use Log::Log4perl;
+use File::Spec::Functions qw(catfile);
 
 use constant PUBLIC_RUN_MODES  =>  {
                                     debug            => 'debug',
                                     login            => 'login',
-                                    config           => 'config',
+                                    config           => 'get_config',
                                     run_event_proc   => 'run_event_proc',
                                     quick_entry      => 'quick_entry',
                                    };
@@ -59,11 +60,18 @@ sub setup
     my $self = shift;
     my $base_dir = $self->param('base_dir');
 
+    # Get the absolute path to the config file
+    my $absolute_config_filepath = catfile(
+        $base_dir,
+        'conf',
+        $self->param('config_file'),
+    );
+
     # Get the config
     eval
     {
-        $self->config_file( $self->param('config_file') );
-        $self->config_fold(base_dir => $base_dir);
+        $self->config_file( $absolute_config_filepath );
+        $self->config_fold({base_dir => $base_dir});
         $self->{conf} = $self->config_param();
     }; die "Error occured getting the configuration. [$@]" if ($@);
 
@@ -182,9 +190,9 @@ sub login
     }
 }
 #########################################
-# config
+# get_config
 #########################################
-sub config
+sub get_config
 {
     my $self = shift;
     my $config = '<MT_CODEBASE><![CDATA['. $ENV{MT_CODEBASE} .']]></MT_CODEBASE>'. 
