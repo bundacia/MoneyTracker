@@ -5,6 +5,7 @@ use strict;
 use DBI;
 use XML::Simple;
 use MoneyTracker::Session;
+use File::Spec::Functions qw(catfile);
 
 sub new
 {
@@ -57,8 +58,8 @@ sub _start_log
     
     my $self = shift;
     my $class = ref $self;
-    my $log_dir = $self->{conf}{base_dir}.'/log/';
-    my $logfile = $log_dir . $class.'.log';
+    my $log_dir = $self->{conf}{log_dir};
+    my $logfile = catfile($log_dir, $class.'.log');
 
     open LOG, '>>', $logfile or die "can't open log [$logfile] because $!";
 }

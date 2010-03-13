@@ -1,4 +1,4 @@
-base_dir: "home/protected/MoneyTracker/"
+log_dir: "home/protected/log/mt.log"
 cookie_name: "mts"
 domain: "mtd.tjlittle.com"
 
@@ -12,8 +12,8 @@ ImportEntries:
 db:
     db: "money_tracker_dev_db"
     host: "tjlittle.db"
-    password: "!moneytracker_dev"
-    user: "moneytracker_dev"
+    password: ""
+    user: ""
 
 LogConfig: |
     log4perl.rootLogger: WARN, Logfile
