@@ -3,7 +3,7 @@ package MoneyTracker::Processor;
 use strict;
 
 use DBI;
-use XML::Simple;
+use Config::YAML;
 use MoneyTracker::Session;
 use File::Spec::Functions qw(catfile);
 
@@ -18,7 +18,7 @@ sub start
     my $self = shift;
     my %args = @_;
 
-    $self->{conf} = XMLin( $self->{conf} );
+    $self->{conf} = Config::YAML->new( config =>  $self->{conf} );
 
     $self->_start_log();
 
@@ -55,7 +55,7 @@ sub _run { }
 #########################################
 sub _start_log
 {
-    
+return; #DEBUG#    
     my $self = shift;
     my $class = ref $self;
     my $log_dir = $self->{conf}{log_dir};
@@ -72,18 +72,19 @@ sub _log
     my $self = shift;
     my $date = `date '+[\%D - \%T]'`;
     chomp($date);
-    print LOG $date . "$_\n" for @_;
+#DEBUG#    print LOG $date . "$_\n" for @_;
 
-    if ($self->{debug})
-    {
+#DEBUG#    if ($self->{debug})
+#DEBUG#    {
         print $date . "$_\n" for @_;
-    }
+#DEBUG#    }
 }
 #########################################
 # _stop_log
 #########################################
 sub _stop_log
 {
+return; #DEBUG#    
     my $self = shift;
     close $self->{LOG};
 }

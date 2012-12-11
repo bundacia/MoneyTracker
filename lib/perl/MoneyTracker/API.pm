@@ -458,9 +458,10 @@ sub get_entries
             # save the closing tag for the end
             my $fund_closing_tag = pop @fund_xml;
 
+            my ($next_y, $next_m) = $self->get_next_month($y,$m);
             my $entries = $fund->get_entries_by_date(
-                            start => $y .'-'.  $m      .'-01 00:00:00',
-                            end   => $y .'-'. ($m + 1) .'-00 00:00:00'
+                            start => $y      .'-'. $m      .'-01 00:00:00',
+                            end   => $next_y .'-'. $next_m .'-00 00:00:00'
                         );
             # put it all together
             $xml .= join "\n", @fund_xml;
@@ -498,6 +499,19 @@ sub get_entries
 
     return $xml;
 
+}
+#########################################
+# get_next_month
+#########################################
+sub get_next_month
+{
+    my $self = shift;
+    my ($y,$m) = @_;
+
+    return($y+1, 1) if $m = 12;
+
+    return($y,$m+1);
+   
 }
 #########################################
 # get_imported_entries 
