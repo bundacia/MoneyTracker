@@ -18,6 +18,7 @@ use MoneyTracker::Entry;
 use CGI::Carp qw(fatalsToBrowser);
 use CGI::Application::Plugin::Config::YAML;
 use DBI;
+use Date::Calc qw(Add_Delta_YM);
 use Date::Format qw(time2str);
 use Data::Dumper;
 use English qw( -no_match_vars );
@@ -458,7 +459,7 @@ sub get_entries
             # save the closing tag for the end
             my $fund_closing_tag = pop @fund_xml;
 
-            my ($next_y, $next_m) = $self->get_next_month($y,$m);
+            my ($next_y, $next_m) = Add_Delta_YM($y, $m, 1, 0, 1);
             my $entries = $fund->get_entries_by_date(
                             start => $y      .'-'. $m      .'-01 00:00:00',
                             end   => $next_y .'-'. $next_m .'-00 00:00:00'
@@ -499,19 +500,6 @@ sub get_entries
 
     return $xml;
 
-}
-#########################################
-# get_next_month
-#########################################
-sub get_next_month
-{
-    my $self = shift;
-    my ($y,$m) = @_;
-
-    return($y+1, 1) if $m = 12;
-
-    return($y,$m+1);
-   
 }
 #########################################
 # get_imported_entries 

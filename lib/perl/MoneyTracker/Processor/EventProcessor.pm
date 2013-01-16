@@ -123,7 +123,7 @@ sub _process_rollover_event
     # Get the year and month of "last month"
     my ($year,$month) = Add_Delta_YM(@event_YMD, 0, -1);
     # Get last month's remaining balance
-    $self->_log('Getting remailing balance for month: ['.$month.'], year: ['.$year.']');
+    $self->_log('Getting remaining balance for fund ['.$fund->name().'] month: ['.$month.'], year: ['.$year.']');
     my $rollover_amount = $fund->get_balance(year => $year, month => $month);   
 
     my $new_entry   = MoneyTracker::Entry->new(session => $self->{session}); 
@@ -138,7 +138,7 @@ sub _process_rollover_event
     eval  
     { 
         $new_entry->save(); 
-        $self->_log('Added new entry ['. $new_entry->description() .'] to fund ['. $fund->name(). '].');
+        $self->_log('Added rollover of ['.$rollover_amount.'] to fund ['. $fund->name(). '].');
     };
     if($@){ chomp($@); $self->_log("ERROR trying to save new entry: [$@]."); }
 }

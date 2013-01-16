@@ -6,6 +6,8 @@ use MoneyTracker::Entry;
 use MoneyTracker::Budget;
 use MoneyTracker::Session;
 
+use Date::Calc qw(Add_Delta_YM);
+
 use base 'MoneyTracker::DBObject';
 
 use constant CLASS_DB_ATTR => {
@@ -76,9 +78,11 @@ sub get_balance
     my $month = $args{month};
     my $year  = $args{year};
     
+    # Get the year and month of "next month"
+    my ($next_year,$next_month) = Add_Delta_YM($year, $month, 1, 0, 1);
     my $entries = $self->get_entries_by_date(
-                                              start => $year .'-'.  $month      .'-01 00:00:00', 
-                                              end   => $year .'-'. ($month + 1) .'-00 00:00:00'
+                                              start => $year      .'-'. $month      .'-01 00:00:00', 
+                                              end   => $next_year .'-'. $next_month .'-00 00:00:00'
                                             );
     for my $entry (@{$entries})
     {
